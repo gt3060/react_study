@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Data from './components/Data';
+import Event from './components/Event';
+import './css/App.css';
+import Eventmvvm from './components/Eventmvvm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+    render(){
+        return(
+            <div>
+                <Eventmvvm></Eventmvvm>
+                <Event></Event>
+                <Data></Data>
+                
+            </div>
+        )
+    }
 }
 
 export default App;
