@@ -1,9 +1,10 @@
 import React from 'react'
 import '../css/Todolist.css';
-import Storage from '../model/storage'
+import Storage from '../model/storage';
+import Num from '../model/number'
 
 
-// 添加删除交互以及缓存的使用
+// 添加删除交互以及缓存的使用,计数
 
 
 class Todolist_up extends React.Component {
@@ -11,8 +12,8 @@ class Todolist_up extends React.Component {
         super(props);
         this.state = {
             username: "text",
-            number_bottom:0,
-            number_top:0,
+            number_bottom: 0,
+            number_top: 0,
             list: [
                 {
                     title: '录制ionic',
@@ -40,26 +41,39 @@ class Todolist_up extends React.Component {
     }
 
     add_data = (e) => {
-        // console.log(e.keyCode);
+
         if (e.keyCode == 13) {
-            console.log(this.refs.title.value)
+            console.log(e);
+            // console.log(this.refs.title.value)
             let ls = this.refs.title.value;
             var t = this.state.list;
 
             t.push({
-                title:ls,
-                checked:false
+                title: ls,
+                checked: false
             });
             this.refs.title.value = null;
 
+            let list = this.state.list
+            let cnum = Num.sum(list, false);
+            Storage.set('number', cnum);
+
             this.setState({
-                list: t
+                list: t,
+                number_top: cnum
             })
         }
 
+
+        // console.log(this.state.list)
+
+
+
         //执行缓存数据localStorage
         // localStorage.setItem('todolist',JSON.stringify(t));
-        Storage.set('todolist',t);
+
+
+        Storage.set('todolist', t);
 
     }
 
@@ -67,13 +81,19 @@ class Todolist_up extends React.Component {
         // console.log("key:"+key)
         let t = this.state.list;
         t.splice(key, 1);
+        let cnum = Num.sum(t, false);
         this.setState({
-            list: t
+            list: t,
+            number_top:cnum
         })
+        // let list = this.state.list
         
-         //执行缓存数据localStorage
+        Storage.set('number', cnum);
+
+
+        //执行缓存数据localStorage
         //  localStorage.setItem('todolist',JSON.stringify(t));
-        Storage.set('todolist',t);
+        Storage.set('todolist', t);
 
     }
 
@@ -82,30 +102,36 @@ class Todolist_up extends React.Component {
         console.log("alalla");
         let t = this.state.list;
         t[key].checked = !t[key].checked
-
+        let cnum = Num.sum(t, false);
+        Storage.set('number', cnum);
         // console.log(e.)
         this.setState({
-           list:t
+            list: t,
+            number_top:cnum
         })
 
-         //执行缓存数据localStorage
+        //执行缓存数据localStorage
         //  localStorage.setItem('todolist',JSON.stringify(t));
-        Storage.set('todolist',t);
+        Storage.set('todolist', t);
     }
 
 
 
     //生命周期函数进行渲染缓存中内容
-    componentDidMount(){
-        
+    componentDidMount() {
+
         //获取缓存数据
         // var list =JSON.parse(localStorage.getItem('todolist'));
 
-         var list = Storage.get('todolist')
+        var list = Storage.get('todolist')
 
-        if(list){
+        var cnum = Storage.get('number')
+
+        if (list) {
             this.setState({
-                list:list
+                list: list,
+                number_top: cnum
+
             })
         }
 
@@ -121,15 +147,19 @@ class Todolist_up extends React.Component {
                         <input ref="title" onKeyUp={this.add_data} className="top_right_input" placeholder="添加ToDo" />
                     </div>
                 </div>
-                
-                <h2>待办事项</h2><h3>{this.state.number_top}</h3>
+
+                <h2>待办事项</h2><h3>{
+                    this.state.number_top
+
+                }
+                </h3>
                 <ul>
                     {
                         this.state.list.map((value, key) => {
                             if (!value.checked) {
                                 return (
                                     <li key={key}>
-                                        <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this,key)} />
+                                        <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this, key)} />
                                         {value.title}-----<button onClick={this.delete_data.bind(this,key)}>删除</button>
                                     </li>
                                 )
@@ -147,7 +177,7 @@ class Todolist_up extends React.Component {
                             if (value.checked) {
                                 return (
                                     <li key={key}>
-                                        <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this,key)} />
+                                        <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this, key)} />
                                         {value.title}-----<button onClick={this.delete_data.bind(this,key)}>删除</button>
                                     </li>
                                 )
