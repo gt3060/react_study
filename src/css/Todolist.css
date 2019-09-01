@@ -1,0 +1,40 @@
+.sum{
+    
+}
+ul li{
+    line-height: 50px;
+}
+.list{
+    padding-left: 40px;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    background-color:gray;
+    height: 50px;
+    align-items: center;
+    /* justify-content: center; */
+    font-weight: bold;
+    color: aliceblue;
+    font-size: 30px;
+
+}
+.top_left{
+    margin-left: 40%;
+    /* border:1px solid red; */
+}
+.top_right{
+    /* width: 500px; */
+    margin-left: 20%;
+    margin-top: -1%;
+    /* border:1px solid red; */
+
+}
+.top_right input{
+    color: grey;
+    width:250px;
+    height: 25px;
+    border-radius: 8px;
+    /* border:1px solid red; */
+    box-shadow:2px 2px  5px   rgb(26, 24, 24) inset;
+}
