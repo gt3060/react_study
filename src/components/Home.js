@@ -15,8 +15,19 @@ import Footer from './Footer';
                 // 2）子组件里面this.props.title
 
                 // 说明：父组件不仅可以给子组件传值，还可以传方法以及传递整个 父组件。可以给子组件往父组件传值 
+                        // defaultProps:父子组件传值中，如果父组件调用 子组件时不给子组件传值，则用其定义默认值；
+                        // propsTypes:验证组件传值类型的合法性;
+                                // 写法：
+                                    // I：引入import PropTypes from'props-types'
+
+                                    // II：类.propTypes = {
+                                    //     // name:propTypes.string //定义 了name是string类型；
+                                    // }
+                        // 以上两种都是定义在子组件中
+
         //子组件给父组件传值：
-                // 1）
+                // 1）父组件中child={this}
+                // 2）子组件：this.props.child.method.bind(this,'子组件向父组件传的值')
 
         // 父组件主动获取子组件的数据（父组件操作子组件）
                 // 1）调用子组件指定的ref的值<Child ref='header'/>
@@ -58,7 +69,7 @@ class Home extends React.Component{
         return(
             <div>
                 {this.state.msg};
-                <Child title ={this.state.title} run={this.run}  child = {this}/>
+                <Child title ={this.state.title} run={this.run}  child = {this} num="20"/>
 
                 <Footer ref='foo'></Footer>
                 <button onClick={this.getFooter} >获取整个底部组件</button>
@@ -70,5 +81,7 @@ class Home extends React.Component{
     }
 
 }
+
+
 
 export default Home;

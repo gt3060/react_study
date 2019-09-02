@@ -1,5 +1,71 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+#Learn
+
+##React Install
+
+###安装nodejs
+
+### npm install -g create-react-app
+
+### create-reactt-app ***
+
+##Catalogue analysis
+
+###public
+
+公共文件，其中初始创建项目中的ico文件是网页的logo
+
+###src文件夹
+
+资源文件，其中包括组件文件，样式表文件，图片文件以及封装的模块文件；
+serviceWorker.js文件是：是用于加快react运行速度的js文件；
+index.js文件是其实加载js文件；
+
+其中 model指的是模块组件的封装
+
+###package.json/package-lock.json
+
+项目的配置文件
+
+###README.md
+
+阅读文档的一个文件
+
+## Learn  Frame
+
+以下内容用于简述各个组件的内容：
+
+
+### Data.js
+
+基本的获取数据的方式
+
+### Event.js/EventMvvm.js
+
+事件的监听，使用，获取，react实现vue的双向绑定 ，约束性和非约束性组件，导入图片
+
+
+### Axios.js
+
+利用axios方式请求数据，详情参考：https://github.com/axios/axios
+
+### FetchJsonp.js
+
+利用Fetch-jsonp方式跨域请求数据，详情参考：https://www.npmjs.com/package/jsonp
+
+### Todolist.js/Todolist.js
+
+基本的input组件的添加删除同步等内容
+
+### Lifecycle.js
+
+声明 周期的使用
+
+### Home.js/Child.js/Footer.js
+
+父子组件之间传值的使用
+
 ## Available Scripts
 
 In the project directory, you can run:

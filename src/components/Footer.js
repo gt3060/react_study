@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+// import PropType from 'prop-type'
 
 
 
@@ -23,5 +24,12 @@ class Footer extends React.Component{
     }
 
 }
+Footer.defaultProps={
+    title:'标题'
+}
+
+// Footer.propsTypes={
+//     num:PropType.number
+// }
 
 export default Footer;

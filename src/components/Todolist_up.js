@@ -15,27 +15,6 @@ class Todolist_up extends React.Component {
             number_bottom: 0,
             number_top: 0,
             list: [
-                {
-                    title: '录制ionic',
-                    checked: true
-                },
-
-                {
-                    title: '录制react',
-                    checked: false
-                },
-
-                {
-                    title: '录制js',
-                    checked: false
-                },
-
-                {
-                    title: '录制nodejs',
-                    checked: true
-                }
-
-
             ]
         }
     }
@@ -77,18 +56,30 @@ class Todolist_up extends React.Component {
 
     }
 
-    delete_data = (key) => {
+    delete_data = (key,value) => {
         // console.log("key:"+key)
         let t = this.state.list;
         t.splice(key, 1);
-        let cnum = Num.sum(t, false);
-        this.setState({
-            list: t,
-            number_top:cnum
-        })
+        if(value === false){
+            var cnum = Num.sum(t, value);
+            this.setState({
+                list: t,
+                number_top:cnum
+            })
+        }
+        else if(value === true){
+            var cnum1 = Num.sum(t, value);
+            this.setState({
+                list: t,
+                number_bottom:cnum1
+            })
+        }
+        
+        
         // let list = this.state.list
         
         Storage.set('number', cnum);
+        Storage.set('number1', cnum1);
 
 
         //执行缓存数据localStorage
@@ -103,15 +94,18 @@ class Todolist_up extends React.Component {
         let t = this.state.list;
         t[key].checked = !t[key].checked
         let cnum = Num.sum(t, false);
+        let cnum1 = Num.sum(t,true);
         Storage.set('number', cnum);
         // console.log(e.)
         this.setState({
             list: t,
-            number_top:cnum
+            number_top:cnum,
+            number_bottom:cnum1
         })
 
         //执行缓存数据localStorage
         //  localStorage.setItem('todolist',JSON.stringify(t));
+        Storage.set('number1', cnum1);
         Storage.set('todolist', t);
     }
 
@@ -123,14 +117,17 @@ class Todolist_up extends React.Component {
         //获取缓存数据
         // var list =JSON.parse(localStorage.getItem('todolist'));
 
-        var list = Storage.get('todolist')
+        var list = Storage.get('todolist');
+
+        var cnum1 = Storage.get('number1');
 
         var cnum = Storage.get('number')
 
         if (list) {
             this.setState({
                 list: list,
-                number_top: cnum
+                number_top: cnum,
+                number_bottom:cnum1
 
             })
         }
@@ -160,7 +157,7 @@ class Todolist_up extends React.Component {
                                 return (
                                     <li key={key}>
                                         <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this, key)} />
-                                        {value.title}-----<button onClick={this.delete_data.bind(this,key)}>删除</button>
+                                        {value.title}-----<button onClick={this.delete_data.bind(this,key,false)}>删除</button>
                                     </li>
                                 )
                             }
@@ -178,7 +175,7 @@ class Todolist_up extends React.Component {
                                 return (
                                     <li key={key}>
                                         <input type="checkbox" checked={value.checked} onChange={this.change_value.bind(this, key)} />
-                                        {value.title}-----<button onClick={this.delete_data.bind(this,key)}>删除</button>
+                                        {value.title}-----<button onClick={this.delete_data.bind(this,key,true)}>删除</button>
                                     </li>
                                 )
                             }
