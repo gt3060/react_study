@@ -1,22 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#Learn
+# Learn
 
-##React Install
+## React Install
 
-###安装nodejs
+### 安装nodejs
 
 ### npm install -g create-react-app
 
 ### create-reactt-app ***
 
-##Catalogue analysis
+## Catalogue analysis
 
-###public
+### public
 
 公共文件，其中初始创建项目中的ico文件是网页的logo
 
-###src文件夹
+### src文件夹
 
 资源文件，其中包括组件文件，样式表文件，图片文件以及封装的模块文件；
 serviceWorker.js文件是：是用于加快react运行速度的js文件；
@@ -24,11 +24,11 @@ index.js文件是其实加载js文件；
 
 其中 model指的是模块组件的封装
 
-###package.json/package-lock.json
+### package.json/package-lock.json
 
 项目的配置文件
 
-###README.md
+### README.md
 
 阅读文档的一个文件
 
