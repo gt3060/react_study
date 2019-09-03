@@ -66,6 +66,10 @@ index.js文件是其实加载js文件；
 
 父子组件之间传值的使用
 
+### ReactRouter文件夹中的Home.js/New.js/Product.js
+
+这三个组件用于实现React路由的问题
+
 ## Available Scripts
 
 In the project directory, you can run:
