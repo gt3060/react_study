@@ -9,13 +9,14 @@ import Todolist_up from './components/Todolist_up';
 import Axios from './components/Axios';
 import FetchJsonp from './components/FetchJsonp';
 import Lifecycle from './components/Lifecycle';
-import Home from './components/ReactRouter/Home';
+// import Home from './components/ReactRouter/Home';
 import News from './components/ReactRouter/New';
 import Product from './components/ReactRouter/Product';
 import Content from './components/ReactRouter/Content';
 
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import ProductContent from './components/ReactRouter/ProductContent';
+import Home from './components/ant-design/Home';
 
 
 class App extends React.Component {
@@ -45,6 +46,9 @@ class App extends React.Component {
         return (
 
             <div>
+
+                <Home></Home>
+
                 {/* {
                     this.state.flag ? <Lifecycle title={this.state.title} />:"" 
                 }
@@ -52,7 +56,7 @@ class App extends React.Component {
                 <button onClick={this.setflag}>挂载和销毁声明周期函数组件</button>
                 <button onClick={this.settitle}>改变父组件title的值</button> */}
 
-                <Router>
+                {/* <Router>
                     <div>
                         <header className="rout_header">
                             <br />
@@ -71,7 +75,7 @@ class App extends React.Component {
                         <Route path="/productcontent" component={ProductContent}/>
                         <Route path="/productcontent:aid" component={ProductContent}/>
                     </div>
-                </Router>
+                </Router> */}
 
 
                 {/* <FetchJsonp></FetchJsonp> */}

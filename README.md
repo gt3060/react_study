@@ -176,6 +176,45 @@ react get 传值：
 
     1、获取this.props.location.search
 
+###使用antdesign
+
+基本配置使用 ：
+
+    1、安装antd：npm install antd --save
+
+    2、在react项目的css文件中引入Antd的css
+
+    3、看文档使用：
+
+        例如：使用Button：
+            1）：引入组件：import {Button} from 'antd';
+
+            2）：使用组件：<Button type="primary">按钮</Button>.
+
+高级配置使用：详见：https://ant.design/docs/react/use-with-create-react-app-cn
+
+    防止多余的css文件的引入，影响性能，则应该按需引入；
+
+    1、安装antd
+
+    1、引入react-app-rewired : npm install react-app-rewired
+
+    2、在package.json 中 进行配置，见文档；
+
+    3、在根目录建一个config-overrides.js文件 用于修改 默认配置（复制代码 ）
+
+    4、安装babel-plugin-import插件 npm install babel-plugin-import
+
+    5、修改config-overrides.js文件，（复制代码）
+
+    6、按需引入：
+
+        例如：在Home.js文件中引入一个Button组件：
+
+            import {Button} from 'antd'
+            
+            <Button type="primary">按钮</Button>.
+
 ## Available Scripts
 
 In the project directory, you can run:
