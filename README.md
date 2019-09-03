@@ -62,13 +62,119 @@ index.js文件是其实加载js文件；
 
 声明 周期的使用
 
+React生命周期函数：
+    组件加载前，组件加载完成，以及组件的更新销毁，所触发的一系列方法；
+
+组件加载的时候触发的函数：
+
+    constructor、componentWillMount、render、componentDidMount
+
+组件更新时候触发的声明周期函数：
+
+    shouldComponentUpdate、componentWillUpdate、render、componentDidUpdate
+
+ 在父组件里面改变props传值的时候触发：
+
+    componentWillRecelveProps
+      
+组件销毁时候触发：
+    
+    componentWillUnmount
+
 ### Home.js/Child.js/Footer.js
 
 父子组件之间传值的使用
 
+React组件的作用：用于解决html标签构建不足
+
+使用React组件的优点：把公共的功能单独抽离成一个组件，可以在任何地方使用；
+
+父子组件：调用者是父组件；被调用者是子组件
+
+父子组件传值：
+        父组件给子组件传值：
+                1）在调用子组件的时候定义一个属性，<Child title='传值'></Child>
+                
+                2）子组件里面this.props.title
+
+                说明：父组件不仅可以给子组件传值，还可以传方法以及传递整个 父组件。可以给子组件往父组件传值 
+                        defaultProps:父子组件传值中，如果父组件调用 子组件时不给子组件传值，则用其定义默认值；
+                        propsTypes:验证组件传值类型的合法性;
+                                写法：
+                                    I：引入import PropTypes from'props-types'
+
+                                    II：类.propTypes = {
+                                        // name:propTypes.string //定义 了name是string类型；
+                                    }
+                        以上两种都是定义在子组件中
+
+        子组件给父组件传值：
+                1）父组件中child={this}
+                2）子组件：this.props.child.method.bind(this,'子组件向父组件传的值')
+
+        父组件主动获取子组件的数据（父组件操作子组件）
+                1）调用子组件指定的ref的值<Child ref='header'/>
+                2）通过this.refs.header获取整个子组件的实例
+
 ### ReactRouter文件夹中的Home.js/New.js/Product.js
 
 这三个组件用于实现React路由的问题
+
+react路由的配置：
+
+    1、找到官方文档：http://reacttraining.com/react-router/web/example/basic
+
+    2、安装     npm install react - router - dom--save
+
+    3、找到项目的根组件引入 react - router - dom
+        import { HashRouter as Router, Link, Route } from 'react-router-dom'
+
+    4、进行代码编写：
+                <Router>
+                    <div>
+                        <header className="rout_header">
+                            <br />
+                            <Link to="/" className="rout_header_con">首页</Link><br />
+                            <br />
+                            <Link to="/news" className="rout_header_con">新闻</Link><br />
+                            <br />
+                            <Link to="/product" className="rout_header_con">商品</Link><br />
+                        </header>
+
+                        <br /><hr />
+                        <Route exact path="/" component={Home} />
+                        <Route path="/news" component={News} />
+                        <Route path="/product" component={Product} />
+                    </div>
+                </Router>
+
+一个页面跳转到另一个页面进行传值：
+    
+    1、get传值；
+
+    2、动态路由；
+
+    3、localStorage
+
+### ReactRouter文件夹中的Conetent.js/ProductConten.js
+
+这两个组件主要和New.js/Product.js结合使用，用于实现动态路由的问题
+
+在react里面使用url模块需要安装url模块：npm istall url --save
+
+react动态路由和get传值 ：
+
+    1、动态路由配置：
+        <Route path="/content/:aid" component={Content} />
+
+    2、对应的动态路由加载的组件里面获取传值
+        this.props.match.params
+    
+    跳转：<Link to="/news" className="rout_header_con">新闻</Link>
+
+react get 传值：
+
+    1、获取this.props.location.search
 
 ## Available Scripts
 

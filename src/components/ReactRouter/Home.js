@@ -11,23 +11,23 @@ import React, { Component } from 'react';
 //         import { HashRouter as Router, Link, Route } from 'react-router-dom'
 
 //     4、进行代码编写：
-                // <Router>
-                //     <div>
-                //         <header className="rout_header">
-                //             <br />
-                //             <Link to="/" className="rout_header_con">首页</Link><br />
-                //             <br />
-                //             <Link to="/news" className="rout_header_con">新闻</Link><br />
-                //             <br />
-                //             <Link to="/product" className="rout_header_con">商品</Link><br />
-                //         </header>
+//                 <Router>
+//                     <div>
+//                         <header className="rout_header">
+//                             <br />
+//                             <Link to="/" className="rout_header_con">首页</Link><br />
+//                             <br />
+//                             <Link to="/news" className="rout_header_con">新闻</Link><br />
+//                             <br />
+//                             <Link to="/product" className="rout_header_con">商品</Link><br />
+//                         </header>
 
-                //         <br /><hr />
-                //         <Route exact path="/" component={Home} />
-                //         <Route path="/news" component={News} />
-                //         <Route path="/product" component={Product} />
-                //     </div>
-                // </Router>
+//                         <br /><hr />
+//                         <Route exact path="/" component={Home} />
+//                         <Route path="/news" component={News} />
+//                         <Route path="/product" component={Product} />
+//                     </div>
+//                 </Router>
 
 // 一个页面跳转到另一个页面进行传值：
     

@@ -11,9 +11,11 @@ import FetchJsonp from './components/FetchJsonp';
 import Lifecycle from './components/Lifecycle';
 import Home from './components/ReactRouter/Home';
 import News from './components/ReactRouter/New';
-import Product from './components/ReactRouter/Product'
+import Product from './components/ReactRouter/Product';
+import Content from './components/ReactRouter/Content';
 
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
+import ProductContent from './components/ReactRouter/ProductContent';
 
 
 class App extends React.Component {
@@ -65,6 +67,9 @@ class App extends React.Component {
                         <Route exact path="/" component={Home} />
                         <Route path="/news" component={News} />
                         <Route path="/product" component={Product} />
+                        <Route path="/content:aid" component={Content}/>
+                        <Route path="/productcontent" component={ProductContent}/>
+                        <Route path="/productcontent:aid" component={ProductContent}/>
                     </div>
                 </Router>
 
