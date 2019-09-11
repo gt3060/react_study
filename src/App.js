@@ -5,7 +5,7 @@ import './css/App.css';
 import Eventmvvm from './components/Eventmvvm';
 import Todolist from './components/Todolist';
 import Todolist_up from './components/Todolist_up';
-// import Home from './components/Home';
+import Home from './components/Home';
 import Axios from './components/Axios';
 import FetchJsonp from './components/FetchJsonp';
 import Lifecycle from './components/Lifecycle';
@@ -16,7 +16,9 @@ import Content from './components/ReactRouter/Content';
 
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import ProductContent from './components/ReactRouter/ProductContent';
-import Home from './components/ant-design/Home';
+// import Home from './components/ant-design/Home';
+import Child from './components/Child';
+import Parent from './components/Parent';
 
 
 class App extends React.Component {
@@ -47,7 +49,8 @@ class App extends React.Component {
 
             <div>
 
-                <Home></Home>
+                {/* <Home></Home> */}
+                {/* <Child></Child> */}
 
                 {/* {
                     this.state.flag ? <Lifecycle title={this.state.title} />:"" 
@@ -80,7 +83,9 @@ class App extends React.Component {
 
                 {/* <FetchJsonp></FetchJsonp> */}
                 {/* <Axios></Axios> */}
-                {/* <Home></Home> */}
+                <Home></Home>
+                <Parent></Parent>
+                {/* <Child></Child> */}
                 {/* <Todolist_up></Todolist_up> */}
                 {/* <Todolist></Todolist> */}
                 {/* <Eventmvvm></Eventmvvm>

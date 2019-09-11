@@ -15,6 +15,9 @@ class Child extends React.Component{
        alert(this.props.child.state.title) ;
 
     }
+    test=()=>{
+        console.log(this.props.title)
+    }
     render(){
 
 
@@ -23,7 +26,8 @@ class Child extends React.Component{
                 {this.state.msg}
                 <br></br><hr/>
                <h2> {this.props.title}</h2>
-               <br/><hr/>
+               <button onClick={this.test} ></button>
+               {/* <br/><hr/>
                <button onClick={this.props.run}>传方法</button>
                <br/><hr/>
                <button onClick={this.props.child.getData}>传整个组件</button>
@@ -32,7 +36,10 @@ class Child extends React.Component{
                <br /><hr/>
                 <button onClick={this.props.child.getChildData.bind(this,this.state.childmsg)}>子组件给父组件传值</button>
                 <br/>
-                <button onClick={this.props.child.getChildData.bind(this,'我是子组件的值')}>子组件给父组件传值</button>
+                <button onClick={this.props.child.getChildData.bind(this,'我是子组件的值')}>子组件给父组件传值</button> */}
+
+                
+                {/* <h2>{this.props.title}</h2> */}
             </div>
         )
     }

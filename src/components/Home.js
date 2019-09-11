@@ -40,7 +40,7 @@ class Home extends React.Component{
         super(props);
         this.state={
             msg:"这是父组件",
-            title:"父传值子"
+            title:"第一个父组件"
         }
     }
     run=()=>{
