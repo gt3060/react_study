@@ -24,12 +24,18 @@ import Parent from './components/Parent';
 class App extends React.Component {
 
     //生命周期
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         title: '我是APp组件的title',
-    //         flag: true
-    //     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            // title: '我是APp组件的title',
+            // flag: true
+            count:0
+        }
+    }
+    // componentDidMount(){
+    //    this.setState({
+    //        count: this.select.value
+    //    })
     // }
 
     // setflag = () => {
@@ -43,11 +49,32 @@ class App extends React.Component {
     //         title:'woshi 改变后的父组件title'
     //     })
     // }
+    handleadd = () =>{
+        const {count} = this.state;
+        const number = parseInt(this.select.value) + count;
+        this.setState({
+            count:number
+        })
+        
+    }  
+    decrease = () =>{
+        const {count} = this.state;
+        const number =count - parseInt(this.select.value) ;
+        console.log(number);
+        console.log(this.select.value)
+        this.setState({
+            count:number
+        })
+    }
+
+    increnodd =() =>{
+
+    }
 
     render() {
         return (
 
-            <div>
+            <div style={{marginLeft:"100px",marginTop:"100px"}}>
 
                 {/* <Home></Home> */}
                 {/* <Child></Child> */}
@@ -83,8 +110,8 @@ class App extends React.Component {
 
                 {/* <FetchJsonp></FetchJsonp> */}
                 {/* <Axios></Axios> */}
-                <Home></Home>
-                <Parent></Parent>
+                {/* <Home></Home> */}
+                {/* <Parent></Parent> */}
                 {/* <Child></Child> */}
                 {/* <Todolist_up></Todolist_up> */}
                 {/* <Todolist></Todolist> */}
@@ -92,7 +119,18 @@ class App extends React.Component {
                 <Event></Event>
                 <Data></Data> */}
 
-
+                {/* 测试redux */}
+                <p>click {this.state.count} times</p>
+                <select ref={select => this.select = select} >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>&nbsp;&nbsp;
+                <button onClick={this.handleadd}>+</button>&nbsp;&nbsp;
+                <button onClick={this.decrease}>-</button>&nbsp;&nbsp;
+                <button onClick={this.increnodd}>increment if odd</button>&nbsp;&nbsp;
+                <button onClick={this.asyncincrement}>increment async</button>&nbsp;&nbsp;
+                
 
             </div>
         )
